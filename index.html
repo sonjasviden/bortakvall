@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bortakväll</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+
+	<body>
+		<div id="checkout-modal" class="checkout-modal hide">
+			<div class="heading-checkout">
+				<h1>Checka ut din beställning</h1>
+				<button id="close-checkout-button" class="close-checkout-btn">&times;</button>
+			</div>
+			<div id="order-confirmation"></div>
+			<div class="checkout-body">
+				<form id="checkout-form" class="checkout-form">
+					<div class="name-flex">
+						<div class="flex">
+							<label for="fname">Förnamn</label>
+							<input type="text" id="fname" name="firstname" placeholder="Ditt förnamn..." required minlength="2">
+						</div>
+						<div class="flex">
+							<label for="lname">Efternamn</label>
+							<input type="text" id="lname" name="lastname" placeholder="Ditt efternamn..." required minlength="2">
+						</div>
+					</div>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="Din e-postadress..." required>
+					<label for="phone">Mobilnummer (valfritt)</label>
+					<input type="tel" id="phone" name="phone" placeholder="Ditt mobilnummer...">
+
+					<div class="address-flex">
+						<div class="flex">
+							<label for="address">Adress</label>
+							<input type="text" id="address" name="address" placeholder="Din adress..." required minlength="2">
+						</div>
+						<div class="flex">
+							<label for="postcode">Postnummer</label>
+							<input type="text" id="postcode" name="postcode" placeholder="Ditt postnummer..." required minlength="2">
+						</div>
+					</div>
+					<label for="city">City</label>
+					<input type="text" id="city" name="city" placeholder="Din stad..." required minlength="2">
+					<div class="button-checkout">
+						<button id="place-order-button" class="place-order-btn" type="submit">Lägg beställning</button>
+					</div>
+				</form>
+				<div class="cart-checkout">
+					<h2>Din varukorg</h2>
+					<div id="order-total" class="order-total"></div>
+					<div id="cart-checkout"></div>
+				</div>
+			</div>
+		</div>
+
+		<header class="navbar">
+			<img src="src/images/bk-logo.png" class="logo" alt="">
+			<div id="cart-slide-out" class="cart-slide-out">
+				<button id="close-cart-button" class="close-button">&times;</button>
+				<h2>Varukorg</h2>
+				<ul id="cart-list" class="cart-list"></ul>
+				<div class="cart-bottom">
+					<p class="cart-total-price"></p>
+					<button class="checkout-button" id="checkoutBtn">Gå till kassan</button>
+				</div>
+			</div>
+			<button id="show-cart-button" class="nav-button">
+				<i class="fa-solid fa-cart-shopping"></i>
+			</button>
+		</header>
+
+		<main>
+			<div class="products-toolbar">
+				<div id="product-count"></div>
+				<div id="sort-products">
+					Sortera produkter efter namn
+					<i id="sort-products-down" class="fa-solid fa-arrow-down"></i>
+					<i id="sort-products-up" class="fa-solid fa-arrow-up"></i>
+				</div>
+			</div>
+			<ul id="products" class="products"></ul>
+			<div id="modal-bg" class="modal-bg">
+				<div id="modal" class="modal"></div>
+			</div>
+		</main>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
